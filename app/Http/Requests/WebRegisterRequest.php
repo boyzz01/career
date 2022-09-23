@@ -30,10 +30,10 @@ class WebRegisterRequest extends FormRequest
             'privacyPolicy' => 'required',
         ];
 
-        if(getSettingValue('enable_google_recaptcha')){
-            $rules['g-recaptcha-response'] = 'required';
-        }
-        
+        // if(getSettingValue('enable_google_recaptcha')){
+        //     $rules['g-recaptcha-response'] = 'required';
+        // }
+
         return $rules;
     }
 

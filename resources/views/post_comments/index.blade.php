@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ __('messages.post.comment') }}
+{{ __('messages.post.comment') }}
 @endsection
 @section('content')
 <div class="container-fluid">
@@ -13,5 +13,6 @@
 @include('post_comments.show_model')
 @endsection
 @push('scripts')
-{{--    <script src="{{mix('assets/js/post_comments/post_comments.js')}}"></script>--}}
+{{--
+<script src="{{asset(mix('assets/js/post_comments/post_comments.js'))}}"></script>--}}
 @endpush

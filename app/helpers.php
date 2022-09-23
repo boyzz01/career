@@ -1,34 +1,34 @@
 <?php
 
-    use App\Models\City;
-    use App\Models\Company;
-    use App\Models\Country;
-    use App\Models\Notification;
-    use App\Models\Plan;
-    use App\Models\Setting;
-    use App\Models\State;
+use App\Models\City;
+use App\Models\Company;
+use App\Models\Country;
+use App\Models\Notification;
+use App\Models\Plan;
+use App\Models\Setting;
+use App\Models\State;
 use App\Models\Transaction;
 use App\Models\User;
-    use App\Providers\RouteServiceProvider;
-    use Carbon\Carbon;
-    use Illuminate\Database\Eloquent\Builder;
-    use Illuminate\Database\Eloquent\Collection;
-    use Illuminate\Support\Facades\Auth;
-    use Illuminate\Support\Facades\Session;
-    use Illuminate\Support\Facades\URL;
-    use Stripe\Exception\ApiErrorException;
-    use Stripe\Stripe;
-    use Stripe\StripeClient;
+use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
+use Stripe\Exception\ApiErrorException;
+use Stripe\Stripe;
+use Stripe\StripeClient;
 
-    /**
-     * @return int
-     */
-    function getLoggedInUserId()
-    {
-        return Auth::id();
-    }
+/**
+ * @return int
+ */
+function getLoggedInUserId()
+{
+    return Auth::id();
+}
 
-    /**
+/**
  * @return User
  */
 function getLoggedInUser()
@@ -61,7 +61,7 @@ function dashboardURL()
  */
 function removeCommaFromNumbers($number)
 {
-    return (gettype($number) == 'string' && ! empty($number)) ? str_replace(',', '', $number) : $number;
+    return (gettype($number) == 'string' && !empty($number)) ? str_replace(',', '', $number) : $number;
 }
 
 function settings()
@@ -119,7 +119,7 @@ function getAvatarUrl()
  */
 function getUserImageInitial($userId, $name)
 {
-    return getAvatarUrl()."?name=$name&size=100&rounded=true&color=fff&background=".getRandomColor($userId);
+    return getAvatarUrl() . "?name=$name&size=100&rounded=true&color=fff&background=" . getRandomColor($userId);
 }
 
 /**
@@ -241,14 +241,14 @@ function getCities($stateId)
  */
 function getUserLanguages(): array
 {
-    $languages = File::directories(resource_path().'/lang');
+    $languages = File::directories(resource_path() . '/lang');
     $languagesArr = file_get_contents(storage_path('languages.json'));
     $languagesArr = json_decode($languagesArr, true);
     $allLanguagesArr = [];
     foreach ($languages as $language) {
         $lanCode = substr($language, -2);
         if (isset($languagesArr[$lanCode])) {
-            $allLanguagesArr[$lanCode] = $languagesArr[$lanCode]['name'].' ('.$languagesArr[$lanCode]['nativeName'].')' ?? $language;
+            $allLanguagesArr[$lanCode] = $languagesArr[$lanCode]['name'] . ' (' . $languagesArr[$lanCode]['nativeName'] . ')' ?? $language;
         } else {
             $allLanguagesArr[$lanCode] = Str::camel($lanCode);
         }
@@ -264,7 +264,7 @@ function getCompanyLogo()
 {
     // get the company logo
     $user = Auth::user();
-    if (! empty($user->avatar)) {
+    if (!empty($user->avatar)) {
         return $user->avatar;
     }
 
@@ -305,7 +305,7 @@ function formatCurrency($currencyValue)
         $currencySuffix = 'Cr';
     }
 
-    return $formattedAmount.' '.$currencySuffix;
+    return $formattedAmount . ' ' . $currencySuffix;
 }
 
 /**
@@ -351,7 +351,7 @@ function setStripeApiKey()
  */
 function preparePhoneNumber($phone, $regionCode)
 {
-    return (! empty($phone)) ? '+'.$regionCode.$phone : null;
+    return (!empty($phone)) ? '+' . $regionCode . $phone : null;
 }
 
 /**
@@ -374,37 +374,37 @@ function checkLanguageSession()
     return 'en';
 }
 
-    /**
-     * @return mixed|null
-     */
-    function getCurrentLanguageName()
-    {
-        return User::LANGUAGES[checkLanguageSession()];
-    }
+/**
+ * @return mixed|null
+ */
+function getCurrentLanguageName()
+{
+    return User::LANGUAGES[checkLanguageSession()];
+}
 
-    /**
-     *
-     *
-     * @return mixed
-     */
-    function getCurrentLanguageCode()
-    {
-        return Auth::user()->language;
-    }
+/**
+ *
+ *
+ * @return mixed
+ */
+function getCurrentLanguageCode()
+{
+    return Auth::user()->language;
+}
 
-    /**
-     * @param $fileName
-     *
-     * @param $attachment
-     *
-     * @return string
-     */
-    function getFileName($fileName, $attachment)
-    {
+/**
+ * @param $fileName
+ *
+ * @param $attachment
+ *
+ * @return string
+ */
+function getFileName($fileName, $attachment)
+{
     $fileNameExtension = $attachment->getClientOriginalExtension();
-    $newName = $fileName.'-'.time();
+    $newName = $fileName . '-' . time();
 
-    return $newName.'.'.$fileNameExtension;
+    return $newName . '.' . $fileNameExtension;
 }
 
 /**
@@ -486,8 +486,10 @@ function addNotification($data)
  */
 function getNotification($role)
 {
-    return Notification::whereNotificationFor($role)->where('read_at', null)->where('user_id',
-        getLoggedInUserId())->orderByDesc('created_at')->get();
+    return Notification::whereNotificationFor($role)->where('read_at', null)->where(
+        'user_id',
+        getLoggedInUserId()
+    )->orderByDesc('created_at')->get();
 }
 
 /**
@@ -587,19 +589,19 @@ function getPayPalSupportedCurrencies()
 
 function getCurrentVersion()
 {
-    if (config('app.is_version') == 'true') {
-        $composerFile = file_get_contents('../composer.json');
-        $composerData = json_decode($composerFile, true);
-        $currentVersion = $composerData['version'];
+    // if (config('app.is_version') == 'true') {
+    //     $composerFile = file_get_contents('../composer.json');
+    //     $composerData = json_decode($composerFile, true);
+    //     $currentVersion = $composerData['version'];
 
-        return 'v'.$currentVersion;
-    }
+    //     return 'v'.$currentVersion;
+    // }
 }
 
 function addLinkHttpUrl($linkUrl)
 {
-    if (! preg_match("~^(?:f|ht)tps?://~i", $linkUrl)) {
-        $linkUrl = "http://".$linkUrl;
+    if (!preg_match("~^(?:f|ht)tps?://~i", $linkUrl)) {
+        $linkUrl = "http://" . $linkUrl;
     }
 
     return $linkUrl;
@@ -612,7 +614,7 @@ function addLinkHttpUrl($linkUrl)
  *
  * @return string
  */
-function numberFormatShort( $n, int $precision = 2 ): string
+function numberFormatShort($n, int $precision = 2): string
 {
     if ($n < 900) {
         // 0 - 900
@@ -636,21 +638,20 @@ function numberFormatShort( $n, int $precision = 2 ): string
         $suffix = 'T';
     }
 
-    if ( $precision > 0 ) {
-        $dotZero = '.' . str_repeat( '0', $precision );
-        $numberFormat = str_replace( $dotZero, '', $numberFormat );
+    if ($precision > 0) {
+        $dotZero = '.' . str_repeat('0', $precision);
+        $numberFormat = str_replace($dotZero, '', $numberFormat);
     }
 
     return $numberFormat . $suffix;
 }
 
-function processingPlan($id){
+function processingPlan($id)
+{
 
     $user = Auth::user();
 
     $plan =  \App\Models\Subscription::with('owner')->where('user_id', $user->id)->where('plan_id', $id)->where('stripe_status', 'pending')->first();
 
     return $plan;
-
-
 }

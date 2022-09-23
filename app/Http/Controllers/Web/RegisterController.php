@@ -26,6 +26,7 @@ class RegisterController extends AppBaseController
     public function candidateRegister()
     {
         $isGoogleReCaptchaEnabled = $this->webRegisterRepository->getSettingForReCaptcha();
+        //   $isGoogleReCaptchaEnabled = false;
 
         return view('front_web.auth.candidate_register', compact('isGoogleReCaptchaEnabled'));
     }
@@ -36,7 +37,7 @@ class RegisterController extends AppBaseController
     public function employerRegister()
     {
         $isGoogleReCaptchaEnabled = $this->webRegisterRepository->getSettingForReCaptcha();
-
+        //$isGoogleReCaptchaEnabled = false;
         return view('front_web.auth.employer_register', compact('isGoogleReCaptchaEnabled'));
     }
 
@@ -54,6 +55,6 @@ class RegisterController extends AppBaseController
         $userType = ($input['type'] == 1) ? __('messages.notification_settings.candidate') : __('messages.company.employer');
         Flash::success(__('messages.flash.register_success_mail_active'));
 
-        return $this->sendSuccess("{$userType} ".__('messages.flash.registration_done'));
+        return $this->sendSuccess("{$userType} " . __('messages.flash.registration_done'));
     }
 }

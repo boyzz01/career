@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-    {{ __('messages.expired_jobs') }}
+{{ __('messages.expired_jobs') }}
 @endsection
 @include('flash::message')
 @section('content')
@@ -12,6 +12,6 @@
 </div>
 @endsection
 {{--@push('scripts')--}}
-{{--    <script src="{{mix('assets/js/job_expired/job_expired.js')}}"></script>--}}
+{{--
+<script src="{{asset(mix('assets/js/job_expired/job_expired.js'))}}"></script>--}}
 {{--@endpush--}}
-

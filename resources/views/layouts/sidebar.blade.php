@@ -1,12 +1,12 @@
-{{--<link href="{{ mix('assets/css/style.css') }}" rel="stylesheet" type="text/css"/>--}}
+{{--
+<link href="{{ asset(mix('assets/css/style.css')) }}" rel="stylesheet" type="text/css" />--}}
 <div class="aside-menu-container" id="sidebar">
     <!--begin::Brand-->
     <div class="aside-menu-container__aside-logo flex-column-auto">
         <a data-turbo="false" href="{{ url('/') }}" data-toggle="tooltip" data-placement="right"
-           class="text-decoration-none sidebar-logo image image-mini"
-           title="{{ getAppName() }}">
-            <img src="{{ getLogoUrl() }}"
-                 alt="Logo" width="70px" height="30px" alt="Logo" class="img-fluid new-logo-image"/>
+            class="text-decoration-none sidebar-logo image image-mini" title="{{ getAppName() }}">
+            <img src="{{ getLogoUrl() }}" alt="Logo" width="70px" height="30px" alt="Logo"
+                class="img-fluid new-logo-image" />
             <span class="navbar-brand-name text-dark text-decoration-none logo ps-2">{{ getAppName() }}</span>
         </a>
 
@@ -18,7 +18,8 @@
     <!--end::Brand-->
     <form class="d-flex position-relative aside-menu-container__aside-search search-control py-3 mt-1">
         <div class="position-relative w-100 sidebar-search-box">
-            <input class="form-control" type="text" placeholder={{__('messages.common.search')}} id="menuSearch" aria-label="Search" name="search">
+            <input class="form-control" type="text" placeholder={{__('messages.common.search')}} id="menuSearch"
+                aria-label="Search" name="search">
             <span class="aside-menu-container__search-icon position-absolute d-flex align-items-center top-0 bottom-0">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </span>

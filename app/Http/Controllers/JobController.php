@@ -48,13 +48,12 @@ class JobController extends AppBaseController
     public function index()
     {
         $statusArray = Job::STATUS;
-        
-        if (! $this->checkJobLimit()) {
-            Flash::error(__('messages.flash.job_create_limit'));
-        }
-        
+
+        // if (!$this->checkJobLimit()) {
+        //     Flash::error(__('messages.flash.job_create_limit'));
+        // }
+
         return view('employer.jobs.index', compact('statusArray'));
-        
     }
 
     /**
@@ -84,7 +83,7 @@ class JobController extends AppBaseController
         $input['is_freelance'] = (isset($input['is_freelance'])) ? 1 : 0;
         $input['status'] = (isset($request->saveAsDraft)) ? Job::STATUS_DRAFT : Job::STATUS_OPEN;
         if ($input['status'] == Job::STATUS_OPEN) {
-            if (! $this->checkJobLimit()) {
+            if (!$this->checkJobLimit()) {
                 return redirect()->back()->withInput()->withErrors(['error' => __('messages.flash.job_create_limit')]);
             }
         }
@@ -147,11 +146,11 @@ class JobController extends AppBaseController
      */
     public function update(Job $job, UpdateJobRequest $request)
     {
-        if ($job->status != Job::STATUS_OPEN) {
-            if (! $this->checkJobLimit()) {
-                return redirect()->back()->withInput()->withErrors(['error' => __('messages.flash.job_create_limit')]);
-            }
-        }
+        // if ($job->status != Job::STATUS_OPEN) {
+        //     if (!$this->checkJobLimit()) {
+        //         return redirect()->back()->withInput()->withErrors(['error' => __('messages.flash.job_create_limit')]);
+        //     }
+        // }
 
         $input = $request->all();
         $input['hide_salary'] = (isset($input['hide_salary'])) ? 1 : 0;
@@ -173,8 +172,10 @@ class JobController extends AppBaseController
      */
     public function destroy(Job $job)
     {
-        $jobAppliedCount = $job->appliedJobs()->whereIn('status',
-            [JobApplication::STATUS_APPLIED, JobApplication::STATUS_DRAFT])->count();
+        $jobAppliedCount = $job->appliedJobs()->whereIn(
+            'status',
+            [JobApplication::STATUS_APPLIED, JobApplication::STATUS_DRAFT]
+        )->count();
         if ($jobAppliedCount > 0) {
             return $this->sendError(__('messages.flash.job_apply_by_candidate'));
         }
@@ -212,7 +213,7 @@ class JobController extends AppBaseController
     }
 
     /**
-         * @param  Request  $request
+     * @param  Request  $request
      *
      * @throws Exception
      *
@@ -351,7 +352,7 @@ class JobController extends AppBaseController
     public function changeIsSuspended(Job $job)
     {
         $isSuspended = $job->is_suspended;
-        $job->update(['is_suspended' => ! $isSuspended]);
+        $job->update(['is_suspended' => !$isSuspended]);
 
         return $this->sendSuccess(__('messages.flash.status_change'));
     }
@@ -377,11 +378,11 @@ class JobController extends AppBaseController
     {
         /** @var Job $job */
         $job = Job::findOrFail($id);
-        if ($job->status != Job::STATUS_OPEN && $status == Job::STATUS_OPEN) {
-            if (! $this->checkJobLimit()) {
-                return $this->sendError(__('messages.flash.job_create_limit'));
-            }
-        }
+        // if ($job->status != Job::STATUS_OPEN && $status == Job::STATUS_OPEN) {
+        //     if (!$this->checkJobLimit()) {
+        //         return $this->sendError(__('messages.flash.job_create_limit'));
+        //     }
+        // }
 
         $job->update(['status' => $status]);
 
@@ -422,11 +423,11 @@ class JobController extends AppBaseController
      */
     public function checkJobLimit()
     {
-        $job = $this->jobRepository->canCreateMoreJobs();
+        // $job = $this->jobRepository->canCreateMoreJobs();
 
-        if (! $job) {
-            return false;
-        }
+        // if (! $job) {
+        //     return false;
+        // }
 
         return true;
     }
@@ -454,17 +455,21 @@ class JobController extends AppBaseController
                 'start_time' => Carbon::now(),
                 'end_time'   => Carbon::now()->addDays($addDays),
             ];
-            FeaturedRecord::create($featuredRecord);    
-            $notificationStatus = NotificationSetting::where('key', '=', 'MARK_JOB_FEATURED')->pluck('value',
-                'key')->toArray();
+            FeaturedRecord::create($featuredRecord);
+            $notificationStatus = NotificationSetting::where('key', '=', 'MARK_JOB_FEATURED')->pluck(
+                'value',
+                'key'
+            )->toArray();
             if ($notificationStatus['MARK_JOB_FEATURED'] == Job::STATUS_OPEN) {
-                NotificationSetting::where('key','MARK_JOB_FEATURED')->where('type',
-                    'employer')->first()->value == 1 ?
+                NotificationSetting::where('key', 'MARK_JOB_FEATURED')->where(
+                    'type',
+                    'employer'
+                )->first()->value == 1 ?
                     addNotification([
                         Notification::MARK_JOB_FEATURED_ADMIN,
                         $employerUser->company->user->id,
                         Notification::EMPLOYER,
-                        $user->first_name.' '.$user->last_name.' mark '.$employerUser->job_title.' as Featured.',
+                        $user->first_name . ' ' . $user->last_name . ' mark ' . $employerUser->job_title . ' as Featured.',
                     ]) : false;
             }
             if ($user->hasRole('Employer')) {
@@ -472,7 +477,7 @@ class JobController extends AppBaseController
                     Notification::MARK_JOB_FEATURED_ADMIN,
                     1,
                     3,
-                    $employerUser->job_title.' is featured',
+                    $employerUser->job_title . ' is featured',
                 ]);
             }
             $transaction = [
@@ -511,10 +516,8 @@ class JobController extends AppBaseController
      */
     public function getExpiredJobs()
     {
- 
+
 
         return view('job_expired.index');
     }
-
-
 }

@@ -51,9 +51,9 @@
     var phoneNo = "{{ old('region_code').old('phone') }}";
 </script>
 {{--
-<script src="{{asset(mix('assets/js/custom/input_price_format.js'))}}"></script>--}}
+<script src="{{asset('assets/js/custom/input_price_format.js')}}"></script>--}}
 {{--
-<script src="{{asset(mix('assets/js/candidate/create-edit.js'))}}"></script>--}}
+<script src="{{asset('assets/js/candidate/create-edit.js')}}"></script>--}}
 {{--
-<script src="{{ asset(mix('assets/js/custom/phone-number-country-code.js')) }}"></script>--}}
+<script src="{{ asset('assets/js/custom/phone-number-country-code.js') }}"></script>--}}
 @endpush

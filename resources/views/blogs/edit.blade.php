@@ -37,5 +37,5 @@
     let blogDescription = '{{$post->description}}';
 </script>
 {{--
-<script src="{{asset(mix('assets/js/blogs/create-edit.js'))}}"></script>--}}
+<script src="{{asset('assets/js/blogs/create-edit.js')}}"></script>--}}
 @endpush

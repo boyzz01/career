@@ -35,7 +35,7 @@ $lang = session()->get('languageName');
     <script>
         let siteKey = "{{config('app.google_recaptcha_site_key')}}"
     </script>
-    <script src="{{asset(('js/front_pages.js'))}}"></script>
+    <script src="{{asset('js/front_pages.js')}}"></script>
     <script src="{{ asset('assets/js/custom/custom.js') }}"></script>
 
     @yield('page_scripts')

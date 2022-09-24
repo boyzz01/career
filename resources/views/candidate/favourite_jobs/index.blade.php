@@ -9,5 +9,5 @@
 @endsection
 @push('scripts')
 {{--
-<script src="{{asset(mix('assets/js/candidate/favourite_jobs.js'))}}"></script>--}}
+<script src="{{asset('assets/js/candidate/favourite_jobs.js')}}"></script>--}}
 @endpush

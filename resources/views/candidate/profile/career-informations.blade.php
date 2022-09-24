@@ -248,19 +248,11 @@
     {{Form::hidden('indexCareerInfoData',true,['id'=>'indexCareerInfoData'])}}
     @endsection
     @push('scripts')
-    <script>
-        { { --let addExperienceUrl = "{{ route('candidate.create-experience') }}"; --} }
-        { { --let experienceUrl = "{{ url('candidate/candidate-experience') }}/"; --} }
-        { { --let addEducationUrl = "{{ route('candidate.create-education') }}"; --} }
-        { { --let candidateUrl = "{{ url('candidate') }}/"; --} }
-        { { --let educationUrl = "{{ url('candidate/candidate-education') }}/"; --} }
-        { { --let present = "{{ __('messages.candidate_profile.present') }}"; --} }
-        // let isEdit = false;
-    </script>
+
     {{--
     <script src="{{ asset('assets/js/moment.min.js') }}"></script>--}}
     {{--
     <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>--}}
     {{--
-    <script src="{{asset(mix('assets/js/candidate-profile/candidate_career_informations.js'))}}"></script>--}}
+    <script src="{{asset'assets/js/candidate-profile/candidate_career_informations.js')}}"></script>--}}
     @endpush

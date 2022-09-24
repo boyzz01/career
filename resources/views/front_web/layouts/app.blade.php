@@ -19,7 +19,7 @@ $lang = session()->get('languageName');
     <link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
 
     <link href="{{asset('assets/css/front-third-party.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{ asset(mix('css/front-pages.css')) }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset(('css/front-pages.css') }}" rel="stylesheet" type="text/css">
 
     @yield('page_css')
     @livewireStyles
@@ -30,12 +30,12 @@ $lang = session()->get('languageName');
         data-turbolinks-eval="false" data-turbo-eval="false">
         </script>
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="{{asset(mix('js/front-third-party.js'))}}"></script>
+    <script src="{{asset('js/front-third-party.js')}}"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <script>
         let siteKey = "{{config('app.google_recaptcha_site_key')}}"
     </script>
-    <script src="{{asset(mix('js/front_pages.js'))}}"></script>
+    <script src="{{asset(('js/front_pages.js'))}}"></script>
     <script src="{{ asset('assets/js/custom/custom.js') }}"></script>
 
     @yield('page_scripts')

@@ -19,7 +19,7 @@ $lang = session()->get('languageName');
     <link rel="stylesheet" href="{{ asset('assets/css/iziToast.min.css') }}">
 
     <link href="{{asset('assets/css/front-third-party.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{ asset(('css/front-pages.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/front-pages.css') }}" rel="stylesheet" type="text/css">
 
     @yield('page_css')
     @livewireStyles

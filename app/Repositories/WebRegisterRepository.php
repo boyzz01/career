@@ -59,7 +59,7 @@ class WebRegisterRepository
                     'unique_id' => $candidateRepo->getUniqueCandidateId(),
                 ]);
                 $user->update(['owner_id' => $candidate->id, 'owner_type' => Candidate::class]);
-                NotificationSetting::where('key','NEW_CANDIDATE_REGISTERED')->first()->value == 1 ?
+                NotificationSetting::where('key', 'NEW_CANDIDATE_REGISTERED')->first()->value == 1 ?
                     addNotification([
                         Notification::NEW_CANDIDATE_REGISTERED,
                         $adminId,
@@ -72,7 +72,7 @@ class WebRegisterRepository
                     'unique_id' => getUniqueCompanyId(),
                 ]);
                 $user->update(['owner_id' => $employer->id, 'owner_type' => Company::class]);
-                NotificationSetting::where('key','NEW_EMPLOYER_REGISTERED')->first()->value == 1 ?
+                NotificationSetting::where('key', 'NEW_EMPLOYER_REGISTERED')->first()->value == 1 ?
                     addNotification([
                         Notification::NEW_EMPLOYER_REGISTERED,
                         $adminId,
@@ -85,7 +85,7 @@ class WebRegisterRepository
                 $subscriptionRepo->createStripeCustomer($user);
             }
 
-            $user->sendEmailVerificationNotification();
+            //  $user->sendEmailVerificationNotification();
 
             DB::commit();
 

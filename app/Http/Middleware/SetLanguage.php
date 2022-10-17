@@ -22,7 +22,7 @@ class SetLanguage
         $localeLanguage = Session::get('languageName');
 
         if (! isset($localeLanguage)) {
-            App::setLocale('en');
+            App::setLocale('id');
         } else {
             App::setLocale($localeLanguage);
         }

@@ -371,7 +371,7 @@ function checkLanguageSession()
         return Session::get('languageName');
     }
 
-    return 'en';
+    return 'id';
 }
 
 /**

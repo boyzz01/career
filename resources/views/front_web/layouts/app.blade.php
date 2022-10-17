@@ -20,7 +20,7 @@ $lang = session()->get('languageName');
 
     <link href="{{asset('css/front-third-party.css')}}" rel="stylesheet" type="text/css">
     <link href="{{ asset('css/front-pages.css') }}" rel="stylesheet" type="text/css">
-
+    <link href="{{asset('front_web/scss/beranda.css')}}" rel="stylesheet" type="text/css">
     @yield('page_css')
     @livewireStyles
     @routes

@@ -56,6 +56,8 @@ return [
     //home menu keys
     'home_menu'       => [
         'your_career_starts_now'           => 'Your Career Starts Now',
+        'tagline'                          => 'Join us & Explore Thousands of Jobs',
+        'tagline-desc'                          => 'Find Jobs, Employment & Career Opportunities',
         'keywords'                         => 'Keywords',
         'any_category'                     => 'Any Category',
         'popular_categories'               => 'Popular Categories',

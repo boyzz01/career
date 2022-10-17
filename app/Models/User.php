@@ -124,15 +124,9 @@ class User extends Authenticatable implements HasMedia
     const PROFILE = 'profile-pictures';
     const ACTIVE = 1;
     const LANGUAGES = [
-        'ar' => 'Arabic',
-        'zh' => 'Chinese',
+
         'en' => 'English',
-        'fr' => 'French',
-        'de' => 'German',
-        'pt' => 'Portuguese',
-        'ru' => 'Russian',
-        'es' => 'Spanish',
-        'tr' => 'Turkish',
+        'id' => 'Indonesian'
     ];
 
     const LANGUAGES_IMAGE = [
@@ -145,6 +139,7 @@ class User extends Authenticatable implements HasMedia
         'ar' => 'assets/img/iraq.svg',
         'zh' => 'assets/img/china.svg',
         'tr' => 'assets/img/turkey.svg',
+        'id' => 'assets/img/indonesia.svg',
     ];
 
     /**
@@ -211,21 +206,21 @@ class User extends Authenticatable implements HasMedia
 
     public function getCountryNameAttribute()
     {
-        if (! empty($this->country)) {
+        if (!empty($this->country)) {
             return $this->country->name;
         }
     }
 
     public function getStateNameAttribute()
     {
-        if (! empty($this->state)) {
+        if (!empty($this->state)) {
             return $this->state->name;
         }
     }
 
     public function getCityNameAttribute()
     {
-        if (! empty($this->city)) {
+        if (!empty($this->city)) {
             return $this->city->name;
         }
     }
@@ -237,7 +232,7 @@ class User extends Authenticatable implements HasMedia
     {
         /** @var Media $media */
         $media = $this->getMedia(self::PROFILE)->first();
-        if (! empty($media)) {
+        if (!empty($media)) {
             return $media->getFullUrl();
         }
 
@@ -274,7 +269,7 @@ class User extends Authenticatable implements HasMedia
      */
     public function getFullNameAttribute()
     {
-        return ucfirst($this->first_name).' '.ucfirst($this->last_name);
+        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
     }
 
     /**

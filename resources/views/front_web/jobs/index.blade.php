@@ -14,19 +14,19 @@
 @endsection
 @section('content')
     <div class="Find Jobs-page">
-        <section class="hero-section position-relative bg-light py-40">
+        <section class="hero-section position-relative bg-light py-40 bg"  style="background-image: url({{ asset('assets/img/bg.png') }});">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-6  text-center mb-lg-0 mb-md-5 mb-sm-4 ">
                         <div class="hero-content">
-                            <h1 class=" text-secondary mb-3">
+                            <h1 class=" text-white mb-3">
                                 @lang('web.web_jobs.find_jobs')
                             </h1>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb  justify-content-center mb-0">
                                     <li class="breadcrumb-item "><a href="{{route('front.home')}}" class="fs-18 text-gray">@lang('web.home')</a>
                                     </li>
-                                    <li class="breadcrumb-item text-primary fs-18" aria-current="page">@lang('web.jobs')</li>
+                                    <li class="breadcrumb-item text-white fs-18" aria-current="page">@lang('web.jobs')</li>
                                 </ol>
                             </nav>
                         </div>
@@ -171,9 +171,9 @@
                                 <input type="text" id="jobExperience" autocomplete="off" class="" tabindex="-1" readonly="">
                             </div>
                         </div>
-                        <div class="job-img mt-5 mb-40 h-auto">
+                        <!-- <div class="job-img mt-5 mb-40 h-auto">
                             <img src="{{ isset($advertise_image->value)?$advertise_image->value: asset('front_web/images/job-img.png')}}" class="w-100" alt="">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-lg-8">
                         <div class="job-card">

@@ -9,11 +9,13 @@
 <link href="{{asset('front_web/css/slick-theme.css')}}" rel="stylesheet" type="text/css">--}}
 {{--
 <link href="{{asset('front_web/scss/home.css')}}" rel="stylesheet" type="text/css">--}}
+
 {{--@endsection--}}
 @section('content')
 <div class="home-page">
     <!-- start hero section -->
-    <section class="hero-section position-relative bg-light pt-100 pb-150">
+    <section class="hero-section position-relative bg-light pt-100 pb-150 bg"
+        style="background-image: url({{ asset('assets/img/bg.png') }});">
         @if($settings->value)
         @if(count($headerSliders) > 0)
         <div class="banner-carousel">
@@ -27,12 +29,12 @@
             <div class="row align-items-center flex-column-reverse flex-lg-row">
                 <div
                     class="{{($settings->value==1 && count($headerSliders) > 0)?'col-lg-8 text-center mx-auto':'col-lg-6 text-lg-start text-center'}}">
-                    <div class="hero-content mt-lg-0 mt-md-5 my-4">
+                    <div class="hero-content mt-lg-0 mt-md-5 my-4 tagline">
                         <h1 class="mb-md-4 mb-3 pe-xxl-3">
-                            {{$cmsServices['home_title']}}
+                            @lang('web.home_menu.tagline')
                         </h1>
-                        <p class="mb-lg-4 pb-lg-3 mb-4 fs-18 text-gray">
-                            {{$cmsServices['home_description']}}
+                        <p class="mb-lg-4 pb-lg-3 mb-4 fs-18 text-white">
+                            @lang('web.home_menu.tagline-desc')
                         </p>
                     </div>
                 </div>
@@ -184,12 +186,13 @@
 
     <!-- start latest-job-section -->
     @if(count($latestJobs) > 0)
-    <section class="latest-job-section py-100 bg-gray">
+    <section class="latest-job-section py-100 bg-gray bg"   
+    style="background-image: url({{ asset('assets/img/bg.png') }});">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-8">
-                    <div class="section-heading ms-xxl-4 me-xxl-4 ms-md-3 me-md-3 text-center">
-                        <h2 class="text-secondary bg-gray">
+                    <div class="section-heading ms-xxl-4 me-xxl-4 ms-md-3 me-md-3 text-center ">
+                        <h2 class="text-white">
                             @lang('web.home_menu.latest_jobs')
                         </h2>
                     </div>

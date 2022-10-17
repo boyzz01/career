@@ -13,12 +13,12 @@
 @endsection
 @section('content')
     <div class="companies-page">
-        <section class="hero-section position-relative bg-light py-40">
+        <section class="hero-section position-relative bg-light py-40 bg" style="background-image: url({{ asset('assets/img/bg.png') }});">
             <div class="container">
                 <div class="row align-items-center justify-content-center ">
                     <div class="col-lg-6 text-center mb-lg-2 mb-md-0 mb-sm-4 mb-3 pb-md-5 pb-4">
                         <div class="hero-content">
-                            <h1 class=" text-secondary mb-md-3">
+                            <h1 class=" text-white mb-md-3">
                                 @lang('messages.companies')
                             </h1>
                             <nav aria-label="breadcrumb">

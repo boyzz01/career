@@ -14,7 +14,7 @@
                 <form id="newsLetterForm">
                     <div class="email d-flex">
                         <div class="response"></div>
-                        <input type="email" id="mc-email" name="email" placeholder="{{__('web.enter_your_mail')}}" class="text-white"
+                        <input type="email" id="mc-email" name="email" placeholder="{{__('web.enter_your_mail')}}" class="text-gray"
                                autocomplete="off" required>
                         <button
                             class="icon d-flex justify-content-center align-items-center bg-primary border-0 btnLetterSave"

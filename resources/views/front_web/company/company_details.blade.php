@@ -8,7 +8,7 @@
 @section('content')
     <div class="company-details-page">
         <!-- start hero section -->
-        <section class="hero-section position-relative bg-light py-40">
+        <section class="hero-section position-relative bg-light py-40 bg"  style="background-image: url({{ asset('assets/img/bg.png') }});">
             <div class="container">
                 <div class="row align-items-center justify-content-center ">
                     <div class="col-12">
@@ -21,32 +21,32 @@
                             </div>
                             <div class="col-sm-10 col-9">
                                 <div class="hero-content ps-xl-0 ps-3">
-                                    <h4 class="text-secondary mb-0">
+                                    <h4 class="text-white mb-0">
                                         {{ html_entity_decode($companyDetail->user->full_name) }}
                                     </h4>
                                     <div class="hero-desc d-flex align-items-center flex-wrap">
                                         <div class="d-flex align-items-center me-4 pe-2">
-                                            <i class="fa-solid fa-briefcase text-gray me-3 fs-18"></i>
-                                            <p class="fs-14 text-gray mb-0">
+                                            <i class="fa-solid fa-briefcase text-white me-3 fs-18"></i>
+                                            <p class="fs-14 text-white mb-0">
                                                 {{!empty($companyDetail->industry->name)? $companyDetail->industry->name : __('messages.common.n/a')}}</p>
                                         </div>
                                         @if(!empty($companyDetail->user->city_id) || (!empty($companyDetail->user->state_id)) || (!empty($companyDetail->user->country_id)))
                                             <div class="desc d-flex align-items-center me-lg-4 me-2 pe-2">
-                                                <i class="fa-solid fa-location-dot text-gray me-3 fs-18"></i>
-                                                <p class="fs-14 text-gray mb-0">
+                                                <i class="fa-solid fa-location-dot text-white me-3 fs-18"></i>
+                                                <p class="fs-14 text-white mb-0">
                                                     {{ (!empty($companyDetail->user->city_id)) ? $companyDetail->user->city_name.', ' : '' }} {{ (!empty($companyDetail->user->country_id)) ? $companyDetail->user->country_name : '' }}</p>
                                             </div>
                                         @endif
                                         @isset($companyDetail->user->phone)
                                             <div class="desc d-flex align-items-center me-lg-4 me-2 pe-2">
-                                                <i class="fa-solid fa-phone text-gray me-3 fs-18"></i>
-                                                <p class="fs-14 text-gray mb-0">
+                                                <i class="fa-solid fa-phone text-white me-3 fs-18"></i>
+                                                <p class="fs-14 text-white mb-0">
                                                     {{$companyDetail->user->phone}}</p>
                                             </div>
                                         @endisset
                                         <div class="desc d-flex align-items-center me-lg-4 me-2 pe-2">
-                                            <i class="fa-solid fa-envelope text-gray me-3 fs-18"></i>
-                                            <p class="fs-14 text-gray mb-0">
+                                            <i class="fa-solid fa-envelope text-white me-3 fs-18"></i>
+                                            <p class="fs-14 text-white mb-0">
                                                 {{$companyDetail->user->email}}</p>
                                         </div>
                                     </div>
@@ -281,12 +281,4 @@
         {{ Form::hidden('unfollowText', __('web.company_details.unfollow'), ['id' => 'unfollowText']) }}
     </div>
 @endsection
-{{--@section('page_scripts')--}}
-{{--    <script>--}}
-        {{--let addCompanyFavouriteUrl = "{{ route('save.favourite.company') }}"--}}
-        {{--let isCompanyAddedToFavourite = "{{ $isCompanyAddedToFavourite }}"--}}
-        {{--let reportToCompanyUrl = "{{ route('report.to.company') }}"--}}
-        {{--let followText = "{{ __('web.company_details.follow') }}"--}}
-        {{--let unfollowText = "{{ __('web.company_details.unfollow') }}"--}}
-{{--    </script>--}}
-{{--@endsection--}}
+

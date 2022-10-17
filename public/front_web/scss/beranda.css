@@ -1,8 +1,28 @@
 .bg {
   background-repeat: no-repeat;
   background-size: cover;
+  color: white;
 }
 
+.header-bg{
+  background-color: #330806 !important;
+}
+header .navbar .navbar-nav .nav-item .nav-link {
+  padding-right:25px;
+  padding-left:25px;
+  color:#fff;
+ }
+
+ header .navbar .navbar-nav .nav-item .nav-link.active,
+header .navbar .navbar-nav .nav-item .nav-link:hover {
+ color:#FF6941;
+}
+
+header .navbar .navbar-nav .nav-item .submenu {
+  background: #fff;
+  background: #330806;
+  }
+ 
 .tagline{
   color: white;
 }

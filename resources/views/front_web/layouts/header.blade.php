@@ -1,5 +1,5 @@
 <!-- start header section -->
-<header class="bg-light">
+<header class="bg-light header-bg" style="background-color: #330806 !important;">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-1 col-4">

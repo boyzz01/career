@@ -418,7 +418,7 @@ listenClick('.languageSelection', function (){
     refreshCsrfToken();
     $.ajax({
         type: 'POST',
-        url: '/career/change-language',
+        url: '/change-language',
         data: {languageName: languageName},
         success: function () {
             location.reload();

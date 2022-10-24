@@ -5,12 +5,13 @@
 @section('content')
     <div class="register-page">
         <!-- start hero section -->
-        <section class="hero-section position-relative bg-light py-40">
+        <section class="hero-section position-relative bg-light py-40 bg"
+        style="background-image: url({{ asset('assets/img/bg.png') }});">
             <div class="container">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-lg-6 text-center mb-lg-0 mb-md-5 mb-sm-4 ">
                         <div class="hero-content">
-                            <h1 class=" text-secondary mb-3">
+                            <h1 class=" text-white mb-3">
                                 {{__('web.register_menu.employer').' '.__('web.register') }}
                             </h1>
                             <nav aria-label="breadcrumb">

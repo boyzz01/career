@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandingSliderController;
 use App\Http\Controllers\CandidateController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\Candidates;
 use App\Http\Controllers\CareerLevelController;
 use App\Http\Controllers\CityController;
@@ -259,6 +260,7 @@ Route::group(['middleware' => ['auth', 'role:Admin', 'xss', 'verified.user'], 'p
     Route::delete('industries/{industry}', [IndustryController::class, 'destroy'])->name('industry.destroy');
 
     // Employers
+
     Route::get('employers', [CompanyController::class, 'index'])->name('company.index');
     Route::get('employers/create', [CompanyController::class, 'create'])->name('company.create');
     Route::post('employers', [CompanyController::class, 'store'])->name('company.store');
@@ -735,6 +737,8 @@ Route::group(['namespace' => 'Web', 'middleware' => ['xss', 'setLanguage']], fun
         [Web\PostController::class, 'getBlogDetailsByCategory']
     )->name('front.blog.category');
 
+
+    Route::get('/print-form/{uniqueId}', [Candidates\CandidateController::class, 'printForm'])->name('candidate.print.form');
     //Candidate Show routes
     Route::get(
         'candidate-details/{uniqueId}',
@@ -761,12 +765,28 @@ Route::group(
         //dashboard
         Route::get('dashboard', [Candidates\DashboardController::class, 'dashboard'])->name('dashboard');
 
+        Route::get('/form', [Candidates\CandidateController::class, 'form'])->name('candidate.form');
+
         Route::get('/profile', [Candidates\CandidateController::class, 'editProfile'])->name('candidate.profile');
         Route::put('update-profile', [Candidates\CandidateController::class, 'updateProfile'])->name('candidate-profile.update');
 
         Route::get('edit-profile', [Candidates\CandidateController::class, 'editCandidateProfile'])->name('candidate.edit.profile');
         Route::post('edit-change-password', [Candidates\CandidateController::class, 'changePassword'])->name('candidate.change-password');
         Route::post('edit-profile-update', [Candidates\CandidateController::class, 'profileUpdate'])->name('candidate.update.profile');;
+
+        Route::post('form-update', [Candidates\FormController::class, 'simpan'])->name('simpan.form');
+        Route::post('pendidikan-update', [Candidates\FormController::class, 'savePendidikan'])->name('simpan.pendidikan');
+        Route::post('pendidikan-non', [Candidates\FormController::class, 'savePendidikanNon'])->name('simpan.pendidikannon');
+        Route::post('pekerjaan-save', [Candidates\FormController::class, 'savePekerjaan'])->name('simpan.pekerjaan');
+        Route::post('anak-save', [Candidates\FormController::class, 'saveAnak'])->name('simpan.anak');
+        Route::post('keluarga-save', [Candidates\FormController::class, 'saveKeluarga'])->name('simpan.keluarga');
+        Route::post('referensi-save', [Candidates\FormController::class, 'saveReferensi'])->name('simpan.referensi');
+        Route::post('darurat-save', [Candidates\FormController::class, 'saveDarurat'])->name('simpan.darurat');
+
+        Route::get(
+            'pendidikan-delete',
+            [Candidates\FormController::class, 'destroyPendidikan']
+        )->name('pendidikan.destroy');
 
         Route::post('/resumes', [Candidates\CandidateController::class, 'uploadResume'])->name('candidate.resumes');
         Route::get('/media/{media?}', [CandidateController::class, 'downloadResume'])->name('download.resume');

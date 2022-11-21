@@ -30,7 +30,7 @@ class CandidateController extends AppBaseController
         $candidate = Candidate::whereUniqueId($uniqueId)->first();
         $data = $this->candidateRepository->getCandidateDetail($candidate->id);
 
-        return view('front_web.candidate.candidate_details')->with($data);
+        return view('front_web.candidate.candidate_details', ['idunik' => $uniqueId])->with($data);
     }
 
     /**

@@ -17,6 +17,10 @@
             <a class="nav-link p-0 {{ (isset($data['sectionName']) && $data['sectionName'] == 'cv-builder') ? 'active' : ''}} fs-5"
                href="{{ route('candidate.profile',['section' => 'cv-builder']) }}"> {{  __('messages.cv_builder') }}</a>
         </li>
+        <li class="nav-item position-relative me-7 mb-3" role="presentation">
+            <a class="nav-link p-0 {{ (isset($data['sectionName']) && $data['sectionName'] == 'form') ? 'active' : ''}} fs-5"
+               href="{{ route('candidate.profile',['section' => 'form']) }}"> Form</a>
+        </li>
     </ul>
 </div>
 

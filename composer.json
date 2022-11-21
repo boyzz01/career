@@ -10,10 +10,13 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "barryvdh/laravel-dompdf": "^2.0",
+        "barryvdh/laravel-snappy": "^1.0",
         "brotzka/laravel-dotenv-editor": "^2.1",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "knplabs/knp-snappy": "^1.4",
         "laracasts/flash": "^3.2",
         "laravel/cashier": "^13.2",
         "laravel/framework": "^v8.64",

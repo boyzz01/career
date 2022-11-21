@@ -280,6 +280,64 @@ class User extends Authenticatable implements HasMedia
         return $this->hasOne(Candidate::class, 'user_id', 'id');
     }
 
+    public function datadiri()
+    {
+        return $this->hasOne(DataDiri::class, 'userid', 'id');
+    }
+
+    public function pendidikan()
+    {
+        return $this->hasMany(PendidikanNon::class, 'userid', 'id');
+    }
+
+    public function pekerjaan()
+    {
+        return $this->hasMany(Pekerjaan::class, 'userid', 'id');
+    }
+
+
+    public function keluarga()
+    {
+        return $this->hasMany(Keluarga::class, 'userid', 'id')->orderBy('status');
+    }
+
+    public function referensi()
+    {
+        return $this->hasMany(Referensi::class, 'userid', 'id');
+    }
+
+    public function darurat()
+    {
+        return $this->hasMany(Darurat::class, 'userid', 'id');
+    }
+
+
+    public function anak()
+    {
+        return $this->hasMany(Anak::class, 'userid', 'id');
+    }
+
+
+    public function tingkat1()
+    {
+        return $this->hasOne(Pendidikan::class, 'userid', 'id')->where('tingkat', '1');
+    }
+
+    public function tingkat2()
+    {
+        return $this->hasOne(Pendidikan::class, 'userid', 'id')->where('tingkat', '2');
+    }
+
+    public function tingkat3()
+    {
+        return $this->hasOne(Pendidikan::class, 'userid', 'id')->where('tingkat', '3');
+    }
+
+    public function tingkat4()
+    {
+        return $this->hasOne(Pendidikan::class, 'userid', 'id')->where('tingkat', '4');
+    }
+
     /**
      * @return HasOne
      */

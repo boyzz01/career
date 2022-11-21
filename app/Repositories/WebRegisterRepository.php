@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App;
 use App\Models\Candidate;
 use App\Models\Company;
+use App\Models\DataDiri;
 use App\Models\Notification;
 use App\Models\NotificationSetting;
 use App\Models\Setting;
@@ -58,6 +59,8 @@ class WebRegisterRepository
                     'user_id'   => $user->id,
                     'unique_id' => $candidateRepo->getUniqueCandidateId(),
                 ]);
+
+                //$form = DataDiri::create(['userid'   => $user->id,]);
                 $user->update(['owner_id' => $candidate->id, 'owner_type' => Candidate::class]);
                 NotificationSetting::where('key','NEW_CANDIDATE_REGISTERED')->first()->value == 1 ?
                     addNotification([

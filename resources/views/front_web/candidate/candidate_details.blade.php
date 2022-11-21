@@ -65,6 +65,12 @@
                             @auth
                                 @role('Employer')
                                 <ul class="post-tags mt-3 ps-0">
+
+                                    <a href="{{ route('candidate.print.form',$idunik) }}" class="btn btn-outline-success reportToCompany reportToCandidate">
+                                    Download Form Candidate
+                                    </a>
+                   
+
                                     @if($isReportedToCandidate)
                                         <button class="btn btn-outline-danger reportToCompany reportToCandidate" disabled
                                         >{{ __('messages.candidate.already_reported') }}</button>
@@ -75,6 +81,9 @@
                                             {{ __('messages.candidate.reporte_to_candidate') }}
                                         </button>
                                     @endif
+
+                                  
+                          
                                 </ul>
                                 @endrole
                             @endauth

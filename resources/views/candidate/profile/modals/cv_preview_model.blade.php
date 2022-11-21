@@ -7,6 +7,7 @@
                         aria-label="Close"></button>
             </div>
             <div class="modal-body mx-5 mx-xl-15 my-7 cv-download-content" id="cvTemplate">
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary me-3 printCV">{{ __('messages.common.print') }}</button>

@@ -172,6 +172,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        Barryvdh\Snappy\ServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -248,8 +250,10 @@ return [
         'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
         'Excel'        => Maatwebsite\Excel\Facades\Excel::class,
         'DotenvEditor' => Brotzka\DotenvEditor\DotenvEditorFacade::class,
+        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
     ],
 
     'is_version' => env('IS_VERSION', true)
-    
+
 ];

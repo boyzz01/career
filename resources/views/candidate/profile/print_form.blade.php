@@ -9,9 +9,9 @@
         {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/third-party.css') }}">
       
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.css') }}"> --}}
       
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}"> --}}
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
       
     </head>
 

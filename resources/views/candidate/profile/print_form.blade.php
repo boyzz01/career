@@ -1,6 +1,6 @@
 <html>
     <head>
-        <base href="{{ url('/') }}">
+        {{-- <base href="{{ url('/') }}">
         <title>@yield('title') | {{ getAppName() }}</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,12 +12,12 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.css') }}">
       
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}"> --}}
       
     </head>
 
-<script src="{{ asset('js/third-party.js') }}"></script>
-<script src="{{  asset('js/pages.js') }}"></script>
+{{-- <script src="{{ asset('js/third-party.js') }}"></script>
+<script src="{{  asset('js/pages.js') }}"></script> --}}
 
 
     <body class="overflow-x-hidden">

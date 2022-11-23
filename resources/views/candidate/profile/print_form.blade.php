@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       
         {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" /> --}}
-        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/third-party.css') }}">
+        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/third-party.css') }}">--}}
       
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">--}}
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.css') }}"> 
       
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">

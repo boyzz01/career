@@ -38,8 +38,7 @@ return [
         'binary' => base_path('vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64'),
         'timeout' => false,
         'options' => [
-            'enable-local-file-access' => true,
-            'orientation'   => 'landscape',
+            'enable-local-file-access' => '',
             'encoding'      => 'UTF-8'
         ],
         'env'     => [],
@@ -51,7 +50,6 @@ return [
         'timeout' => false,
         'options' => [
             'enable-local-file-access' => true,
-            'orientation'   => 'landscape',
             'encoding'      => 'UTF-8'
         ],
         'env'     => [],

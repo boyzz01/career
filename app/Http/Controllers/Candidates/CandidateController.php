@@ -133,7 +133,7 @@ class CandidateController extends AppBaseController
         $pdf->setOption('enable-local-file-access', true);
 
         // Stream untuk menampilkan tampilan PDF pada browser
-        return $pdf->download('table.pdf');
+        return $pdf->download($user->name . '.pdf');
         // return $pdf->download('candidate.profile.print_form');
         // return view('candidate.profile.print_form', compact('user'));
     }

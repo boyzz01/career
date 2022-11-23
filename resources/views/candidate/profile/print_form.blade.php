@@ -1,18 +1,17 @@
 <html>
     <head>
-        {{-- <base href="{{ url('/') }}">
-        <title>@yield('title') | {{ getAppName() }}</title>
+         <base href="{{ url('/') }}"> 
+       
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="shortcut icon" href="{{ getSettingValue('favicon') }}" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+      
+        {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" /> --}}
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/third-party.css') }}">
       
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.css') }}">
       
-        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}"> --}}
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
       
     </head>
 

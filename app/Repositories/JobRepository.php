@@ -84,7 +84,7 @@ class JobRepository extends BaseRepository
         $data['jobCategories'] = JobCategory::toBase()->pluck('name', 'id');
         $data['jobSkills'] = Skill::toBase()->pluck('name', 'id');
         $data['genders'] = Job::NO_PREFERENCE;
-        $data['careerLevels'] = CareerLevel::toBase()->pluck('level_name', 'id');
+        $data['careerLevels'] = CareerLevel::orderBy('id','ASC')->toBase()->pluck('level_name', 'id');
         $data['functionalAreas'] = FunctionalArea::toBase()->pluck('name', 'id');
         $data['advertise_image'] = FrontSetting::where('key', '=', 'advertise_image')->toBase()->first();
 

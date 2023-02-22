@@ -164,6 +164,11 @@ function loadCVBuilderData() {
     listenClick('#downloadPDF', function () {
         makeCVPDF();
     });
+
+    listenClick('#downloadForm', function () {
+        console.log("okee")
+        makeFormPdf();
+    });
     listenClick('.printCV', function () {
         let divToPrint = document.getElementById('cvTemplate');
         let newWin = window.open('', 'Print-Window');
@@ -341,6 +346,12 @@ window.hideAddOnlineProfileDiv = function () {
 };
 function makeCVPDF () {
     var element = document.getElementById('cvTemplate');
+    html2pdf(element);
+    return;
+}
+
+function makeFormPdf () {
+    var element = document.getElementById('formTemplate');
     html2pdf(element);
     return;
 }

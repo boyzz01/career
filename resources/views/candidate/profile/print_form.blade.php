@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       
         {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" /> --}}
-        {{-- <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/third-party.css') }}">--}}
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/third-party.css') }}">
       
         <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.css') }}"> 
@@ -18,6 +18,13 @@
 {{-- <script src="{{ asset('js/third-party.js') }}"></script>
 <script src="{{  asset('js/pages.js') }}"></script> --}}
 
+<style>
+    @media print {
+      body, html, div, #wrapper {
+          height: 100%;
+      }
+}
+</style>
 
     <body class="overflow-x-hidden">
 
@@ -763,6 +770,14 @@
     </body>
 
   
+    
 
 
     </html>
+
+    <script>
+        var printWindow = window.open("", "Print", "width=" + nWidth + "px, height=" + nHeight+ "px");
+printWindow.document.write(sSvgData, sDivData);
+printWindow.document.close();
+printWindow.print();
+    </script>

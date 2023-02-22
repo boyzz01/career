@@ -45,10 +45,10 @@
                                 <a class="nav-link {{ Request::is('contact-us') ? 'active' : '' }}"
                                     href="{{ route('front.contact') }}">{{ __('web.contact_us') }}</a>
                             </li>
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link {{ Request::is('posts*') ? 'active' : '' }}"
                                     href="{{ route('front.post.lists') }}">{{ __('messages.post.blog') }}</a>
-                            </li>
+                            </li> --}}
                             <li class="nav-item">
                                 <a class="nav-link" href="javascript:void(0)">
                                     {{ getCurrentLanguageName() }}</a>

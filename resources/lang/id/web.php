@@ -12,7 +12,7 @@ return [
     */
 
     //header keys
-    'home' => 'Home',
+    'home' => 'Beranda',
     'jobs' => 'Cari Pekerjaan',
     'companies' => 'Perusahaan',
     'about_us' => 'Tentang Kami',
@@ -81,19 +81,19 @@ return [
     //jobs menu keys
     'job_menu'        => [
         'search_job'             => 'Cari',
-        'job_by_type'            => 'Job By Type',
-        'type'                   => 'Type',
-        'job_by_categories'      => 'Job By Categories',
-        'job_by_skills'          => 'Job By Skills',
-        'job_by_gender'          => 'Job By Gender',
-        'job_by_career_level'    => 'Job By Career Level',
-        'job_by_functional_area' => 'Job By Functional Area',
-        'salary_from'            => 'Salary From',
-        'salary_to'              => 'Salary To',
-        'job_details'            => 'Job Details',
-        'we_found'               => 'We Found',
+        'job_by_type'            => 'Pekerjaan Berdasarkan Tipe',
+        'type'                   => 'Tipe',
+        'job_by_categories'      => 'Pekerjaan Berdasarkan Kategori',
+        'job_by_skills'          => 'Pekerjaan Berdasarkan Kemampuan',
+        'job_by_gender'          => 'Pekerjaan Berdasarkan Jenis Kelamin',
+        'job_by_career_level'    => 'Pekerjaan Berdasarkan Jenjang Karir',
+        'job_by_functional_area' => 'Pekerjaan Berdasarkan Area Functional',
+        'salary_from'            => 'Gaji Mulai',
+        'salary_to'              => 'Gaji Sampai',
+        'job_details'            => 'Detail Pekerjaan',
+        'we_found'               => 'Kami Menemukan',
         'matches'                => 'Matches',
-        'no_results_found'       => 'No Results Found',
+        'no_results_found'       => 'Tidak ada hasil yang ditemukan',
         'full_time'              => 'Full Time',
         'none'                   => 'None',
         'search_followers'       => 'Cari',
@@ -193,19 +193,19 @@ return [
         'start_working'                    => 'Start Working',
         'frequently_asked_questions'       => 'Frequently Asked Questions',
         'faq'                              => 'FAQ',
-        'step_1'                           => 'Step 1',
-        'step_2'                           => 'Step 2',
-        'step_3'                           => 'Step 3',
-        'start_by_creating_an_account'     => 'Start by creating an account on our awesome platform',
-        'fill_out_our_forms_and_submit'    => 'Fill out our forms and submit your resume right away',
-        'start_your_new_career_by_working' => 'Start your new career by working with one of the most successful companies',
+        'step_1'                           => 'Langkah 1',
+        'step_2'                           => 'Langkah 2',
+        'step_3'                           => 'Langkah 3',
+        'start_by_creating_an_account'     => 'Mulai dengan membuat akun',
+        'fill_out_our_forms_and_submit'    => 'Isi Form Kami dan Submit resume anda',
+        'start_your_new_career_by_working' => 'Mulai karir anda dengan bekerja dengan salah satu perusahaan sukses kami',
         'faq_not_available'                => 'Frequently Asked Questions not available',
     ],
 
     //Contact Us keys
     'contact_us_menu' => [
-        'contact_us'   => 'Contact Us',
-        'send_message' => 'Send Message',
+        'contact_us'   => 'Kontak Kami',
+        'send_message' => 'Kirim Pesan',
     ],
 
     //Post keys
@@ -228,7 +228,7 @@ return [
 
     //footer keys
     'footer'     => [
-        'useful_links'        => 'Useful Links',
+        'useful_links'        => 'Link',
         'newsletter'          => 'Newsletter',
         'newsletter_text'     => 'Stay Connected with our regular updates by subscribing our newsletter.',
         'copyright'           => 'Copyright',
@@ -258,17 +258,17 @@ return [
 
     //Web keys
     'web_home'   => [
-        'what' => 'What',
-        'where' => 'Where',
+        'what' => 'Apa',
+        'where' => 'Dimana',
         'find_jobs' => 'Cari',
-        'job_title_keywords_company' => 'Job title, keywords, or company',
-        'city_or_postcode' => 'City or Postal Code',
+        'job_title_keywords_company' => 'Pekerjaan, Kata Kunci, atau Perusahaan',
+        'city_or_postcode' => 'Kota atau Kode Pos',
         'popular_job_categories' => 'Kategori Pekerjaan Populer',
         'no_location_added' => 'No location added',
-        'open_position' => 'Open Position',
+        'open_position' => 'Posisi Tersedia',
         'pricing_packages' => 'Pricing Packages',
         'monthly' => 'monthly',
-        'helpful_resources' => 'Helpful Resources',
+        'helpful_resources' => 'Menu',
     ],
 
     'web_jobs' => [
@@ -309,14 +309,14 @@ return [
     ],
 
     'web_contact' => [
-        'leave_a_message'   => 'Leave Us a Message',
-        'your_name'         => 'Your Name',
-        'your_email'        => 'Your Email',
-        'subject'           => 'Subject',
-        'your_phone_no'     => 'Your Phone No',
-        'your_message'      => 'Your Message',
-        'phone_number'      => 'Phone Number',
-        'type_your_message' => 'Type your message...',
+        'leave_a_message'   => 'Tinggalkan Kami Pesan',
+        'your_name'         => 'Nama',
+        'your_email'        => 'Email',
+        'subject'           => 'Subjek Email',
+        'your_phone_no'     => 'Nomor Telepon',
+        'your_message'      => 'Pesan Anda',
+        'phone_number'      => 'Nomor Anda',
+        'type_your_message' => 'Ketik Pesan Anda...',
     ],
 
     'web_blog' => [

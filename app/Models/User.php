@@ -126,7 +126,7 @@ class User extends Authenticatable implements HasMedia
     const LANGUAGES = [
 
         'en' => 'English',
-        'id' => 'Indonesian'
+        'id' => 'Bahasa'
     ];
 
     const LANGUAGES_IMAGE = [

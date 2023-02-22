@@ -14,28 +14,28 @@
     <!--end::Fonts-->
 
     {{--
-    <link rel="stylesheet" type="text/css" href="{{ mix('css/third_party.css') }}">--}}
+    <link rel="stylesheet" type="text/css" href="{{ mix('css/third_party.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/third-party.css') }}">
-    @if(getLoggedInUser()->theme_mode)
-    {{--
-    <link rel="stylesheet" href="{{ asset('assets/css/table-dark.css') }}">--}}
-    {{--
-    <link rel="stylesheet" href="{{ asset('backend/style.dark.bundle.css') }}">--}}
-    {{--
-    <link rel="stylesheet" type="text/css" href="{{ asset(mix('assets/css/dark-main.css') )}}">--}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom-dark.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.dark.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.dark.css') }}">
+    @if (getLoggedInUser()->theme_mode)
+        {{--
+    <link rel="stylesheet" href="{{ asset('assets/css/table-dark.css') }}"> --}}
+        {{--
+    <link rel="stylesheet" href="{{ asset('backend/style.dark.bundle.css') }}"> --}}
+        {{--
+    <link rel="stylesheet" type="text/css" href="{{ asset(mix('assets/css/dark-main.css') )}}"> --}}
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom-dark.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.dark.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.dark.css') }}">
     @else
-    {{--
-    <link rel="stylesheet" href="{{ asset('assets/css/livewire-table.css') }}">--}}
-    {{--
-    <link rel="stylesheet" href="{{ asset('assets/css/style.bundle.css')}}" />--}}
-    {{--
-    <link rel="stylesheet" type="text/css" href="{{ asset(mix('assets/css/main.css')) }}">--}}
+        {{--
+    <link rel="stylesheet" href="{{ asset('assets/css/livewire-table.css') }}"> --}}
+        {{--
+    <link rel="stylesheet" href="{{ asset('assets/css/style.bundle.css')}}" /> --}}
+        {{--
+    <link rel="stylesheet" type="text/css" href="{{ asset(mix('assets/css/main.css')) }}"> --}}
 
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/plugins.css') }}">
     @endif
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
     @livewireStyles
@@ -43,15 +43,14 @@
     @livewireScripts
 
     <script src="https://cdn.jsdelivr.net/gh/livewire/turbolinks@v0.1.x/dist/livewire-turbolinks.js"
-        data-turbolinks-eval="false" data-turbo-eval="false">
-        </script>
+        data-turbolinks-eval="false" data-turbo-eval="false"></script>
     {{--
-    <script src="{{  asset(mix('js/third_party.js')) }}"></script>--}}
-    <script src="{{  asset(mix('js/third-party.js')) }}"></script>
+    <script src="{{  asset(mix('js/third_party.js')) }}"></script> --}}
+    <script src="{{ asset('js/third-party.js') }}"></script>
 
     {{--
-    <script src="{{ asset('assets/js/third-party.js') }}"></script>--}}
-    <script src="{{  asset(mix('js/pages.js')) }}"></script>
+    <script src="{{ asset('assets/js/third-party.js') }}"></script> --}}
+    <script src="{{ asset('js/pages.js') }}"></script>
 
 </head>
 <!--end::Head-->
@@ -81,14 +80,14 @@
     @include('user_profile.change_password_modal')
 
     <!--begin::Javascript-->
-    {{Form::hidden('profile-phone-no', old('region_code').old('phone'), ['id' => 'profilePhoneNo'])}}
+    {{ Form::hidden('profile-phone-no', old('region_code') . old('phone'), ['id' => 'profilePhoneNo']) }}
 
 
     <script data-turbo-eval="false">
-        (function ($) {
+        (function($) {
             let currentLocale = "{{ Config::get('app.locale') }}";
             Lang.setLocale(currentLocale);
-            $.fn.button = function (action) {
+            $.fn.button = function(action) {
                 if (action === 'loading' && this.data('loading-text')) {
                     this.data('original-text', this.html()).html(this.data('loading-text')).prop('disabled', true);
                 }
@@ -97,25 +96,30 @@
                 }
             };
         }(jQuery));
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.alert').delay(5000).slideUp(300);
         });
-        $('[data-dismiss=modal]').on('click', function (e) {
+        $('[data-dismiss=modal]').on('click', function(e) {
             var $t = $(this),
                 target = $t[0].href || $t.data('target') || $t.parents('.modal') || [];
 
             $(target).modal('hide');
         });
-        let utilsScript = "{{asset('assets/js/inttel/js/utils.min.js')}}";
-        { { --let loggedInUserId = "{{ getLoggedInUserId() }}"; --} }
+        let utilsScript = "{{ asset('assets/js/inttel/js/utils.min.js') }}"; {
+            {
+                --
+                let loggedInUserId = "{{ getLoggedInUserId() }}";
+                --
+            }
+        }
         let currentUrlName = "{{ Request::url() }}";
         let readAllNotifications = "{{ url('admin/read-all-notification') }}";
         let readNotification = "{{ url('admin/notification') }}";
         let ajaxCallIsRunning = false;
         let usersRole = '{{ !empty(getLoggedInUser()->roles->first()) ? getLoggedInUser()->roles->first()->name : '' }}';
         let sweetAlertIcon = "{{ asset('images/remove.png') }}"
-        let getLoggedInUserLang = '{{getCurrentLanguageCode()}}';
-        let defaultCountryCodeValue = "{{ getSettingValue('default_country_code')}}"
+        let getLoggedInUserLang = '{{ getCurrentLanguageCode() }}';
+        let defaultCountryCodeValue = "{{ getSettingValue('default_country_code') }}"
     </script>
     <!--end::Page Custom Javascript-->
     <!--end::Javascript-->

@@ -13,13 +13,13 @@
     <!--end::Fonts-->
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/third-party.css') }}">
     <!--begin::Global Stylesheets Bundle(used by all pages)-->
-    <link href="{{ asset(mix('assets/css/style.css')) }}" rel="stylesheet">
-    <link href="{{ asset(mix('css/plugins.css')) }}" rel="stylesheet">
-    <link href="{{asset( mix('assets/css/custom-auth.css')) }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/plugins.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/custom-auth.css') }}" rel="stylesheet">
     {{--
-    <link href="{{ asset('assets/plugins/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />--}}
+    <link href="{{ asset('assets/plugins/plugins.bundle.css')}}" rel="stylesheet" type="text/css" /> --}}
     {{--
-    <link href="{{ asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />--}}
+    <link href="{{ asset('assets/css/style.bundle.css')}}" rel="stylesheet" type="text/css" /> --}}
     <!--end::Global Stylesheets Bundle-->
 </head>
 <!--end::Head-->
@@ -38,26 +38,26 @@
                 <div class='container-fluid'>
                     <footer class="border-top w-100 pt-4 mt-7 text-center">
                         {{-- <p class="fs-6 text-gray-600">{{$settings['copy_right_text']}} <a
-                                href="{{route('front.home')}}" class="text-decoration-none">--}}
-                                {{-- {{$settings['application_name']}}</a>--}}
-                            {{-- </p>--}}
+                                href="{{route('front.home')}}" class="text-decoration-none"> --}}
+                        {{-- {{$settings['application_name']}}</a> --}}
+                        {{-- </p> --}}
                     </footer>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="{{  asset(mix('js/auth-third-party.js')) }}"></script>
+    <script src="{{ asset('js/auth-third-party.js') }}"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.alert').delay(5000).slideUp(300);
-            $('#loginBtn').click(function () {
+            $('#loginBtn').click(function() {
                 $(this).addClass('disabled')
             })
         })
     </script>
     {{--
-    <script src="{{ asset('assets/js/auto_fill/auto_fill.js')}}"></script>--}}
+    <script src="{{ asset('assets/js/auto_fill/auto_fill.js')}}"></script> --}}
 </body>
 <!--end::Body-->
 
